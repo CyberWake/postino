@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>779460595800-baa660c10h6cag6nta3bhbrj3k0motu8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.779460595800-baa660c10h6cag6nta3bhbrj3k0motu8</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>779460595800-nqd93to63e94j7ttck9lof88bps598cg.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAaevSfh_3fgQbZaih-8zKIjtUYfdyg-08</string>
+	<key>GCM_SENDER_ID</key>
+	<string>779460595800</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cyberwake.postino</string>
+	<key>PROJECT_ID</key>
+	<string>postino-69940</string>
+	<key>STORAGE_BUCKET</key>
+	<string>postino-69940.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:779460595800:ios:25197e4945aecf85eaba2d</string>
+</dict>
+</plist>
