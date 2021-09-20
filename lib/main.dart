@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:postino/business_login/utils/theme.dart';
 import 'package:postino/router.dart' as router;
@@ -7,9 +8,8 @@ import 'package:postino/services/service_locator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   setupServiceLocator();
-  runApp(const MyApp());
+  await Firebase.initializeApp().whenComplete(() => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -43,32 +43,36 @@ class _MyHomePageState extends State<MyHomePage> {
   FirebaseAuth auth = FirebaseAuth.instance;
 
   signUp() async {
-    await auth.verifyPhoneNumber(
-      phoneNumber: '+91 7985434482',
-      timeout: const Duration(seconds: 60),
-      codeAutoRetrievalTimeout: (String verificationId) {
-        navigationService.showSnackBar('Code Retrieved');
-      },
-      verificationCompleted: (PhoneAuthCredential phoneAuthCredential) {
-        navigationService.showSnackBar('Verification Complete');
-      },
-      codeSent: (String verificationId, int? forceResendingToken) async {
-        navigationService.showSnackBar('Code Sent');
-        PhoneAuthCredential credential = PhoneAuthProvider.credential(
-          verificationId: verificationId,
-          smsCode: "123456",
-        );
+    if (kIsWeb) {
+      navigationService.showSnackBar('In Progress');
+    } else {
+      await auth.verifyPhoneNumber(
+        phoneNumber: '+91 7985434482',
+        timeout: const Duration(seconds: 60),
+        codeAutoRetrievalTimeout: (String verificationId) {
+          navigationService.showSnackBar('Code Retrieved');
+        },
+        verificationCompleted: (PhoneAuthCredential phoneAuthCredential) {
+          navigationService.showSnackBar('Verification Complete');
+        },
+        codeSent: (String verificationId, int? forceResendingToken) async {
+          navigationService.showSnackBar('Code Sent');
+          PhoneAuthCredential credential = PhoneAuthProvider.credential(
+            verificationId: verificationId,
+            smsCode: "123456",
+          );
 
-        // Sign the user in (or link) with the credential
-        final UserCredential userCredential =
-            await auth.signInWithCredential(credential);
-        print(userCredential.user?.uid.hashCode);
-      },
-      verificationFailed: (FirebaseAuthException error) {
-        print(error.toString());
-        navigationService.showSnackBar('Verification Failed $error');
-      },
-    );
+          // Sign the user in (or link) with the credential
+          final UserCredential userCredential =
+              await auth.signInWithCredential(credential);
+          print(userCredential.user?.uid.hashCode);
+        },
+        verificationFailed: (FirebaseAuthException error) {
+          print(error.toString());
+          navigationService.showSnackBar('Verification Failed $error');
+        },
+      );
+    }
   }
 
   @override
