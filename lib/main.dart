@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         codeSent: (String verificationId, int? forceResendingToken) async {
           navigationService.showSnackBar('Code Sent');
-          PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          final PhoneAuthCredential credential = PhoneAuthProvider.credential(
             verificationId: verificationId,
             smsCode: "123456",
           );
