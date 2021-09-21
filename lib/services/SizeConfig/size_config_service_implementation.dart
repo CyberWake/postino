@@ -14,10 +14,10 @@ class SizeConfigImpl implements SizeConfig {
   }
 
   double getPropHeight(double staticHeight) {
-    return screenHeight * (staticHeight / 823);
+    return screenHeight * (staticHeight / 896);
   }
 
   double getPropWidth(double staticWidth) {
-    return screenWidth * (staticWidth / 411);
+    return screenWidth * (staticWidth / 414);
   }
 }
