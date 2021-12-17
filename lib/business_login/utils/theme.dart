@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:postino/services/service_locator.dart';
 
 class PostinoThemes {
   static const Color _lightCursorColor = Color(0xff34AD64);
   static const Color _lightAccentColor = Color(0xff34AD64);
-  static const Color _lightScaffoldColor = Colors.white;
+  static const Color _lightScaffoldColor = Color(0xFFF7F6F2);
   static const Color _lightPrimaryColor = Colors.white;
   static const Color _lightPrimaryVariantColor = Color(0xFFe5e5e5);
   static const Color _lightIconColor = Color(0xff8C8E8D);
@@ -59,11 +60,25 @@ class PostinoThemes {
   );
 
   static const TextTheme _lightTextTheme = TextTheme(
+    headline1: TextStyle(
+      color: Color(0xFF1A3764),
+      fontWeight: FontWeight.bold,
+      fontSize: 38,
+    ),
+    headline2: TextStyle(
+      color: Color(0xFF94A2B8),
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+    ),
+    headline3: TextStyle(
+      color: Color(0xFFFFFFFF),
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+    ),
     headline4: TextStyle(
-      fontFamily: 'Nunito',
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
-      fontSize: 24.0,
+      fontWeight: FontWeight.w500,
+      color: Color(0xFF94A2B8),
+      fontSize: 15.0,
     ),
     headline5: TextStyle(
       fontWeight: FontWeight.w600,
@@ -76,6 +91,17 @@ class PostinoThemes {
       fontFamily: 'Nunito',
       color: Color(0xFF2128BD),
     ),
+    subtitle1: TextStyle(
+      color: Color(0xFF94A2B8),
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+    ),
+    subtitle2: TextStyle(
+      fontFamily: 'Nunito',
+      fontWeight: FontWeight.w400,
+      color: Color(0xFF2128BD),
+      fontSize: 18.0,
+    ),
     bodyText1: TextStyle(
       fontFamily: 'Nunito',
       fontWeight: FontWeight.w400,
@@ -96,46 +122,74 @@ class PostinoThemes {
     ),
   );
 
-  static const TextTheme _darkTextTheme = TextTheme(
-    headline4: TextStyle(
+  static final TextTheme _darkTextTheme = TextTheme(
+    headline1: TextStyle(
+      color: const Color(0xFF1A3764),
+      fontWeight: FontWeight.bold,
+      fontSize: sizeConfig.getPropWidth(38),
+    ),
+    headline2: TextStyle(
+      color: const Color(0xFF94A2B8),
       fontWeight: FontWeight.w600,
-      fontSize: 18,
+      fontSize: sizeConfig.getPropWidth(16),
+    ),
+    headline3: TextStyle(
+      color: const Color(0xFFFFFFFF),
+      fontWeight: FontWeight.bold,
+      fontSize: sizeConfig.getPropWidth(18),
+    ),
+    headline4: TextStyle(
+      fontWeight: FontWeight.w500,
+      color: Color(0xFF94A2B8),
+      fontSize: 15.0,
     ),
     headline5: TextStyle(
-      fontWeight: FontWeight.w700,
-      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      fontFamily: 'Nunito',
+      fontSize: 28,
     ),
     headline6: TextStyle(
-      fontSize: 28,
-      fontWeight: FontWeight.w600,
+      fontSize: 32,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Nunito',
       color: Color(0xFF2128BD),
     ),
+    subtitle1: TextStyle(
+      color: const Color(0xFF94A2B8),
+      fontWeight: FontWeight.w600,
+      fontSize: sizeConfig.getPropWidth(16),
+    ),
+    subtitle2: TextStyle(
+      fontFamily: 'Nunito',
+      fontWeight: FontWeight.w400,
+      color: Color(0xFF2128BD),
+      fontSize: 18.0,
+    ),
     bodyText1: TextStyle(
-      fontSize: 14,
-      color: Colors.white,
+      fontFamily: 'Nunito',
+      fontWeight: FontWeight.w400,
+      color: Color(0xFF2128BD),
+      fontSize: 18.0,
     ),
     bodyText2: TextStyle(
-      fontSize: 14,
-      color: Colors.white,
+      fontFamily: 'Nunito',
+      fontWeight: FontWeight.w600,
+      color: Color(0xFF2128BD),
+      fontSize: 18.0,
     ),
     caption: TextStyle(
+      fontFamily: 'Nunito',
       fontWeight: FontWeight.w400,
       color: Color(0xFF2128BD),
       fontSize: 18.0,
     ),
   );
 
-  static const InputDecorationTheme _lightInputDecor = InputDecorationTheme(
+  static final InputDecorationTheme _lightInputDecor = InputDecorationTheme(
     border: InputBorder.none,
-    focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color(0xFF008A37)),
-    ),
-    enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Colors.grey),
-    ),
-    errorBorder: InputBorder.none,
-    disabledBorder: InputBorder.none,
-    errorMaxLines: 3,
+    enabledBorder: InputBorder.none,
+    focusedBorder: InputBorder.none,
+    hintStyle: _lightTextTheme.headline4,
   );
   static const InputDecorationTheme _darkInputDecor = InputDecorationTheme(
     border: InputBorder.none,

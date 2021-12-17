@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:postino/services/Navigation/navigation_service.dart';
+import 'package:postino/services/Navigation/service.dart';
 
 class NavigationServiceImpl extends NavigationService {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

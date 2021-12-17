@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:postino/business_login/utils/routing_constants.dart';
 import 'package:postino/business_login/view_models/base_view_model.dart';
+import 'package:postino/services/service_locator.dart';
 
 class OnboardingScreenViewModel extends BaseModel {
   PageController controller = PageController(
@@ -23,8 +25,8 @@ class OnboardingScreenViewModel extends BaseModel {
   void scrollListener() {
     opacity = controller.page! % 1 == 0
         ? 1.0
-        : (controller.page! - controller.page!.floor()) / 10;
-    page = controller.page!.floor();
+        : (controller.page! - controller.page!.round()) % 1;
+    page = controller.page!.round();
     notifyListeners();
   }
 
@@ -32,9 +34,11 @@ class OnboardingScreenViewModel extends BaseModel {
     if (page != 2) {
       controller.animateToPage(
         page + 1,
-        duration: const Duration(milliseconds: 250),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn,
       );
+    } else {
+      navigationService.removeAllAndPush(Routes.auth, Routes.splashScreen);
     }
   }
 

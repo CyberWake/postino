@@ -47,38 +47,31 @@ class _OnboardingScreenViewState extends State<OnboardingScreenView> {
                       children: [
                         const Spacer(),
                         AnimatedOpacity(
-                          duration: const Duration(milliseconds: 250),
+                          duration: const Duration(milliseconds: 500),
                           opacity: model.opacity,
                           child: Text(
                             model.title[model.page],
-                            style: const TextStyle(
-                              color: Color(0xFF1A3764),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 38,
-                            ),
+                            style: Theme.of(context).textTheme.headline1,
                           ),
                         ),
                         AnimatedOpacity(
-                          duration: const Duration(milliseconds: 250),
+                          duration: const Duration(milliseconds: 500),
                           opacity: model.opacity,
                           child: Text(
                             model.subTitle[model.page],
-                            style: const TextStyle(
-                              color: Color(0xFF94A2B8),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
+                            style: Theme.of(context).textTheme.headline2,
                           ),
                         ),
                         const Spacer(),
                         Padding(
                           padding: EdgeInsets.only(
-                              bottom: sizeConfig.getPropHeight(66)),
+                            bottom: sizeConfig.getPropHeight(66),
+                          ),
                           child: CustomRoundRectButton(
                             onTap: model.next,
-                            child: const Text(
+                            child: Text(
                               'Start',
-                              style: TextStyle(color: Colors.white),
+                              style: Theme.of(context).textTheme.headline3,
                             ),
                           ),
                         )

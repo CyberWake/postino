@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:postino/services/SizeConfig/size_config_service.dart';
+import 'package:postino/services/size_config/service.dart';
 
-class SizeConfigImpl implements SizeConfig {
+class SizeConfigServiceImpl implements SizeConfigService {
   static double screenWidth = 0.0;
   static double screenHeight = 0.0;
   double dp = 0.0;

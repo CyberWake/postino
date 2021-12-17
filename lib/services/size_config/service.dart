@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-abstract class SizeConfig{
+abstract class SizeConfigService {
   void init(BuildContext context);
 }
